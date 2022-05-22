@@ -12,11 +12,10 @@ return function()
   disp:setFontPosTop()
   disp:setFontDirection(0)
 
-  disp:clearBuffer()
 
-  disp:drawStr(0, 0, "Hi Troy!")
-
-  disp:sendBuffer()
-
-  return 0
+  return function(text)
+    disp:clearBuffer()
+    disp:drawStr(0, 0, text)
+    disp:sendBuffer()
+  end
 end
