@@ -17,10 +17,10 @@ Pin|Function|Component
 2|SDA|display
 5|Out A|encoder 1
 6|Out B|encoder 1
-sd2|press|encoder 1
-7|Out B|encoder 2
+sd2 (gpio9)|press|encoder 1
 8|Out A|encoder 2
-sd3|press|encoder 2
+7|Out B|encoder 2
+sd3 (gpio10)|press|encoder 2
 
 ### Usage
 - Install [espeon](https://github.com/ryanplusplus/espeon) to transfer files.
