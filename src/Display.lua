@@ -3,6 +3,9 @@ return function()
   local sda = 2
   local scl = 1
   local sla = 0x3c
+
+  local textBuffer = {}
+
   i2c.setup(id, sda, scl, i2c.FAST)
   local disp = u8g2.ssd1306_i2c_128x32_univision(id, sla)
 
@@ -12,10 +15,26 @@ return function()
   disp:setFontPosTop()
   disp:setFontDirection(0)
 
+  local lineMap = {
+    line1 = 0,
+    line2 = 20
+  }
 
-  return function(text)
+  tmr.create():alarm(500, tmr.ALARM_AUTO, function()
     disp:clearBuffer()
-    disp:drawStr(0, 0, text)
+    for _, value in ipairs(textBuffer) do
+      local x = 0
+      local y = lineMap[value.lineId]
+      print(x, y, value.text, value.lineId)
+      disp:drawStr(x, y, value.text)
+    end
     disp:sendBuffer()
-  end
+  end)
+
+  return {
+    print = function(text, lineId)
+      table.insert(textBuffer, {text = text, lineId = lineId})
+    end,
+    clear = function () textBuffer = {} end
+  }
 end
