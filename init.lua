@@ -3,14 +3,13 @@ local Encoder= require 'src/Encoder'
 local pinMap = require 'src/pinMap'
 
 local display = Display(pinMap.displayPins);
-local encoder = Encoder(pinMap.encoder1);
+local encoder1 = Encoder(pinMap.encoder1);
+local encoder2 = Encoder(pinMap.encoder2);
 
-encoder.onPress(function ()
-  display.print("Tee hee, that tickles!", 'line1');
+encoder1.onPress(function ()
+  display.print('Tee hee, that tickles!', 'line1');
 end)
 
-display.print("I am not here!", 'line1');
-
-display.clear()
-
-display.print("I have purpose!", 'line2');
+encoder2.onPress(function ()
+  display.print('Hey, cut it out!', 'line2');
+end)
