@@ -1,4 +1,3 @@
-local led = 1
+local Display = require 'src/Display'
 
-gpio.mode(led, gpio.OUTPUT)
-gpio.write(led, gpio.HIGH)
+local display = Display();

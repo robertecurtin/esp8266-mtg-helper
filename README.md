@@ -1,15 +1,29 @@
-### ESP8266-iot-thermistor
+### ESP8266-mtg-helper
 
-Allows the ESP8266 to integrate with a thermistor.
+Project with Troy to make a physical life tracker for Magic: The Gathering
 
-Allows use of [espeon](https://github.com/ryanplusplus/espeon) to transfer files.
+### Parts list
+- SSD1306 128x32 pixel display
+- Rotary Encoder x2
+- ICR10440 3.7V 350mAh Lithium Ion Rechargeable Battery
+- TP4056 li-on battery charger
+- AAA battery housing
+- 3d printed case (wip)
 
-espeon hot-fix:
-```
-git clone https://github.com/nodemcu/nodemcu-firmware
-cd nodemcu-firmware
-(cd app/lua/luac_cross && make)
-cp luac.cross ~/.lenv/lua/5.1.5/lib/luarocks/rocks-5.1/espeon/1.10-0/res/luac.cross-linux
-```
+#### Board pinout
+Pin|Function|Component
+1|SDL|display
+2|SDA|display
+5|Out A|encoder 1
+6|Out B|encoder 1
+sd2|press|encoder 1
+7|Out B|encoder 2
+8|Out A|encoder 2
+sd3|press|encoder 2
 
-Make sure to add your wifi configuration before running.
+### Usage
+- Install [espeon](https://github.com/ryanplusplus/espeon) to transfer files.
+- run `espeon flash` to flash `firmware.bin` and then `espeon upload` to upload the lua files
+- `espeon run` is helpful for debugging, it uploads and attaches so you can view print statements
+  - `ctrl-a` -> `k` -> `y` exits console
+
