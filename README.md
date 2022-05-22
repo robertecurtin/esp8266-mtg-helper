@@ -12,6 +12,7 @@ Project with Troy to make a physical life tracker for Magic: The Gathering
 
 #### Board pinout
 Pin|Function|Component
+--|--|--
 1|SDL|display
 2|SDA|display
 5|Out A|encoder 1
