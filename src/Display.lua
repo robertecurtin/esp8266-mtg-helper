@@ -1,6 +1,6 @@
-local function initializeI2c(id, displayPins)
-  local sda = displayPins.sda
-  local scl = displayPins.sdl
+local function initializeI2c(id, pins)
+  local sda = pins.sda
+  local scl = pins.sdl
 
   i2c.setup(id, sda, scl, i2c.FAST)
 end
@@ -30,11 +30,11 @@ local function draw(disp, value)
   disp:drawStr(x, y, value.text)
 end
 
-return function(displayPins)
+return function(pins)
   local textBuffer = {}
   local id = 0
 
-  initializeI2c(id, displayPins)
+  initializeI2c(id, pins)
   local disp = initializeDisplay(id)
 
   tmr.create():alarm(500, tmr.ALARM_AUTO, function()

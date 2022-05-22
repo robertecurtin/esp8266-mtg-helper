@@ -17,10 +17,10 @@ Pin|Function|Component
 2|SDA|display
 5|Out A|encoder 1
 6|Out B|encoder 1
-sd2 (gpio9)|press|encoder 1
+4|press|encoder 1
 8|Out A|encoder 2
 7|Out B|encoder 2
-sd3 (gpio10)|press|encoder 2
+3|press|encoder 2
 
 ### Usage
 - Install [espeon](https://github.com/ryanplusplus/espeon) to transfer files.
@@ -28,3 +28,9 @@ sd3 (gpio10)|press|encoder 2
 - `espeon run` is helpful for debugging, it uploads and attaches so you can view print statements
   - `ctrl-a` -> `k` -> `y` exits console
 
+### Troubleshooting
+- If the board won't upload, try `espeon reset`
+- If it _really_ won't respond, try erasing and reflashing
+
+### Todo
+- [ ] key press debouncing and press-and-hold

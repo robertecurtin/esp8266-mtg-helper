@@ -6,11 +6,11 @@ return {
   encoder1 = {
     a = 5,
     b = 6,
-    press = 9
+    press = 4
   },
   encoder2 = {
     a = 8,
     b = 7,
-    press = 10
+    press = 3
   }
 }
